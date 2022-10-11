@@ -1,16 +1,14 @@
 import React from 'react'
 
-
-
 declare let window: any
 //@ts-ignore
-const NavBar =  ({accounts, setAccounts}) => {
+const NavBar = ({ accounts, setAccounts }) => {
     const isConnected = Boolean(accounts[0])
 
     async function connectAccount() {
         if (window.ethereum) {
             const accounts = await window.ethereum.request({
-                method: 'eth_requestAccounts'
+                method: 'eth_requestAccounts',
             })
             setAccounts(accounts)
         }
@@ -30,14 +28,11 @@ const NavBar =  ({accounts, setAccounts}) => {
 
             {isConnected ? (
                 <p>Connected</p>
-            ): (
+            ) : (
                 <button onClick={connectAccount}>Connect</button>
             )}
-
         </div>
     )
-
 }
 
 export default NavBar
-

@@ -1,11 +1,16 @@
-import React from 'react';
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TopMint from './TopMint'
+import Navbar from './NavBar'
 
 function App() {
+  const [accounts, setAccounts] = useState([])
   return (
     <div className="App">
-      <header className="App-header">
+    <Navbar accounts  = {accounts} setAccounts ={setAccounts}/>
+    <TopMint accounts  = {accounts} setAccounts ={setAccounts}/>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,7 +23,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

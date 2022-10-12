@@ -19,7 +19,9 @@ const TopMint = ({ accounts, setAccounts }) => {
                 signer
             )
             try {
-                const res = await contract.mint(BigNumber.from(mintAmount))
+                const res = await contract.mint(BigNumber.from(mintAmount), {
+                    value: ethers.utils.parseEther((0.02 * mintAmount).toString())
+                })
                 console.log('response: ', res)
             } catch (err) {
                 console.log('error: try again', err)
